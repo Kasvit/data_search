@@ -5,5 +5,4 @@ gem 'rake'
 gem 'travis'
 gem 'rspec'
 gem 'guard-rspec', require: false
-
 gem 'pry'
