@@ -7,14 +7,15 @@ bundle install
 ```
 irb
 > require './main.rb'
-> Search.new("Microsoft").result
-> Search.new("Microsoft").result
-> Search.new("Lisp Common").result
-> Search.new('Interpreted "Thomas Eugene"').result
-> Search.new("Interpreted 'Thomas Eugene'").result
-> Search.new('john --array --test').result
+> $database = Database.new('./data.json')
+> $database.populate_database
+> Search.new($database).find(query: "Microsoft")
+> Search.new($database).find(query: "microsoft --compiled --reflective")
+> Search.new($database).find(query: "Lisp Common")
+> Search.new($database).find(query: 'Interpreted "Thomas Eugene"')
+> Search.new($database).find(query: 'john --array')
 ```
-###### For more details add ``` .map(&:to_s) ``` after result
+###### For more details add ``` .map(&:to_s) ``` after find
 
 #### Testing
 ```
