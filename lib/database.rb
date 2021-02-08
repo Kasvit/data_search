@@ -12,11 +12,9 @@ class Database
     @authors   = []
     @data      = JSON.parse(File.open(file_path).read)
   rescue Errno::ENOENT
-    puts "can`t find file"
-    exit
+    raise FileMissingError, "can`t find file"
   rescue JSON::ParserError
-    puts "Invalid file"
-    exit
+    raise FileParsingError, "Invalid file"
   end
 
   # Find or create new Author by name

@@ -1,6 +1,6 @@
 require './initializers/startup'
 
-$database = Database.new('./data.json')
+$database = Database.new('./new_data.json')
 $database.populate_database
 
 puts "Authors: #{$database.authors.size}"
